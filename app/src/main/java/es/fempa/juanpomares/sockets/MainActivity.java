@@ -21,7 +21,8 @@ import java.util.Enumeration;
 
 public class MainActivity extends AppCompatActivity
 {
-    //Adios Fran
+    //Hola Edu
+    // Adios Fran
     TextView myTV;
     Button btncliente, btnservidor;
     EditText ipServer;
