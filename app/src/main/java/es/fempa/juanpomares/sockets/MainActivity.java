@@ -55,6 +55,12 @@ public class MainActivity extends AppCompatActivity
         myTV=(TextView) findViewById(R.id.tvSalida);
     }
 
+    public void enviarMensaje(View v) {
+        EditText et = (EditText)findViewById(R.id.textView);
+        sendMessage(et.getText().toString());
+        et.setText("");
+    }
+
     public void startServer(View v)
     {
         btncliente.setEnabled(false);
@@ -119,7 +125,7 @@ public class MainActivity extends AppCompatActivity
                 (HiloEscucha=new GetMessagesThread()).start();
 
                 //Enviamos mensajes desde el servidor.
-                (new EnvioMensajesServidor()).start();
+                //(new EnvioMensajesServidor()).start();        COMENTADO
                 HiloEspera=null;
             }
             catch (IOException e)
@@ -150,7 +156,7 @@ public class MainActivity extends AppCompatActivity
                 //Iniciamos el hilo para la escucha y procesado de mensajes
                 (HiloEscucha=new GetMessagesThread()).start();
 
-                new EnvioMensajesCliente().start();
+                //new EnvioMensajesCliente().start();   COMENTADO
 
             } catch (Exception e) {
                 e.printStackTrace();
