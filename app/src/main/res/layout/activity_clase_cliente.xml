@@ -7,10 +7,13 @@
     tools:context=".ClaseCliente">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="181dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="5dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/t_datosCliente"
@@ -61,11 +64,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="174dp"
+        android:layout_marginTop="9dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="195dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/t_personalizar"
@@ -102,8 +107,10 @@
         android:id="@+id/b_vamosAChatear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="32dp"
         android:text="Vamos a chatear"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="401dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 </android.support.constraint.ConstraintLayout>
