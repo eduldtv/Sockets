@@ -21,8 +21,7 @@ import java.util.Enumeration;
 
 public class MainActivity extends AppCompatActivity
 {
-    //Hola Edu
-    // Adios Fran
+
     TextView myTV;
     Button btncliente, btnservidor;
     EditText ipServer;
@@ -125,7 +124,10 @@ public class MainActivity extends AppCompatActivity
                 (HiloEscucha=new GetMessagesThread()).start();
 
                 //Enviamos mensajes desde el servidor.
-                //(new EnvioMensajesServidor()).start();        COMENTADO
+
+                // Comentamos esta línea que era la que enviaba automáticamente mensajes en este caso el servidor
+
+                //(new EnvioMensajesServidor()).start();
                 HiloEspera=null;
             }
             catch (IOException e)
@@ -156,7 +158,9 @@ public class MainActivity extends AppCompatActivity
                 //Iniciamos el hilo para la escucha y procesado de mensajes
                 (HiloEscucha=new GetMessagesThread()).start();
 
-                //new EnvioMensajesCliente().start();   COMENTADO
+                // Comentamos esta línea que era la que enviaba automáticamente mensajes en este caso el cliente
+
+                //new EnvioMensajesCliente().start();
 
             } catch (Exception e) {
                 e.printStackTrace();
