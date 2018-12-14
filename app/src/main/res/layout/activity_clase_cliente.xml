@@ -7,6 +7,18 @@
     tools:context=".ClaseCliente"
     tools:layout_editor_absoluteY="81dp">
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -104,14 +116,14 @@
 
     <Button
         android:id="@+id/b_vamosAChatear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vamos a chatear"
+        android:layout_width="100"
+        android:layout_height="100"
+        android:background="@drawable/chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.965" />
+        app:layout_constraintVertical_bias="0.961" />
 
 </android.support.constraint.ConstraintLayout>

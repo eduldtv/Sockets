@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ClaseCliente"></activity>
+        <activity android:name=".ClaseCliente" />
+        <activity android:name=".ClaseAbout"></activity>
     </application>
 
 </manifest>
