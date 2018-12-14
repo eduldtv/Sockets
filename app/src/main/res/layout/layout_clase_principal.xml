@@ -4,39 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp"
-    tools:context=".ClasePrincipal">
+    tools:context=".ClasePrincipal"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/b_servidor"
-        android:onClick="manejador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="77dp"
-        android:text="Servidor"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/server"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/b_cliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="29dp"
-        android:text="Cliente"
-        app:layout_constraintStart_toEndOf="@+id/t_elegir"
-        app:layout_constraintTop_toBottomOf="@+id/t_elegir" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/movil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <TextView
         android:id="@+id/t_elegir"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
         android:text="Elige una opción"
-        app:layout_constraintBottom_toTopOf="@+id/b_servidor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/creado"
+        tools:layout_editor_absoluteX="318dp"
+        tools:layout_editor_absoluteY="445dp" />
 </android.support.constraint.ConstraintLayout>
