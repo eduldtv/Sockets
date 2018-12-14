@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/b_vamosAChatear2"
-        android:layout_width="100"
-        android:layout_height="100"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
