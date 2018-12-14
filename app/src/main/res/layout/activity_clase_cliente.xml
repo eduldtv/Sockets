@@ -9,6 +9,7 @@
 
     <Button
         android:id="@+id/button5"
+        android:onClick="manejador"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/atras"
@@ -120,6 +121,7 @@
 
     <Button
         android:id="@+id/b_vamosAChatear"
+        android:onClick="manejador"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/chat"

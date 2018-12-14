@@ -6,30 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ClaseServidor">
 
-    <Button
-        android:id="@+id/b_vamosAChatear2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/chat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/atras"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="204dp"
@@ -91,4 +67,30 @@
             android:inputType="textPersonName"
             android:textAlignment="center" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/b_vamosAChatear2"
+        android:onClick="manejador"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/chat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
+
+    <Button
+        android:id="@+id/button4"
+        android:onClick="manejador"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
 </android.support.constraint.ConstraintLayout>
