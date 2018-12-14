@@ -23,8 +23,10 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="181dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="5dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/t_datosCliente"
@@ -79,14 +81,16 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="174dp"
+        android:layout_marginTop="9dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="195dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/t_personalizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personaliza tu Conversación"
+            android:text="Configura el chat"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -109,15 +113,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Da Homa"
+            android:hint="Damián"
             android:inputType="textPersonName"
             android:textAlignment="center" />
     </LinearLayout>
 
     <Button
         android:id="@+id/b_vamosAChatear"
-        android:layout_width="100"
-        android:layout_height="100"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
