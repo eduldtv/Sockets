@@ -33,7 +33,7 @@
             android:id="@+id/t_datosCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Escribe los datos del Servidor"
+            android:text="Configura el cliente"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -44,10 +44,9 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dirección IP"
+            android:text="Dirección IP del servidor"
             android:textColorLink="@color/colorPrimary"
             android:textSize="18sp"
-            android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="83dp" />
 
@@ -64,8 +63,8 @@
             android:id="@+id/t_puerto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Puerto"
-            android:textStyle="bold" />
+            android:text="Puerto del servidor"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editText2"
@@ -102,10 +101,9 @@
             android:id="@+id/t_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tu nombre"
+            android:text="Nombre"
             android:textColorLink="@color/colorPrimary"
             android:textSize="18sp"
-            android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="83dp" />
 
