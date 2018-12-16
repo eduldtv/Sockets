@@ -16,6 +16,7 @@ public class ClaseCliente extends AppCompatActivity {
     public void manejador(View v){
         if (v.getId() == R.id.button5){
             Intent intent = new Intent(ClaseCliente.this, ClasePrincipal.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 
         }else if(v.getId() == R.id.b_vamosAChatear) {

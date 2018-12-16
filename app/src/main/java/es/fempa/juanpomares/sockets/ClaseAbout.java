@@ -19,6 +19,7 @@ public class ClaseAbout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentPrincipal = new Intent(ClaseAbout.this, ClasePrincipal.class);
+                intentPrincipal.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentPrincipal);
             }
         });

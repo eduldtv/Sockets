@@ -15,6 +15,7 @@ public class ClaseServidor extends AppCompatActivity {
     public void manejador(View v){
         if (v.getId() == R.id.button4){
             Intent intent = new Intent(ClaseServidor.this, ClasePrincipal.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 
         }else if(v.getId() == R.id.b_vamosAChatear2) {
