@@ -12,6 +12,16 @@ public class ClasePrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_clase_principal);
+
+        Button botonCreadoPor = (Button) findViewById(R.id.b_creado_por);
+
+        botonCreadoPor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentCreadores = new Intent(ClasePrincipal.this, ClaseAbout.class);
+                startActivity(intentCreadores);
+            }
+        });
     }
 
     public void manejador(View v){
