@@ -13,28 +13,38 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="439dp">
+            android:layout_height="409dp">
 
             <TextView
-                android:id="@+id/tv_ bienvenida"
+                android:id="@+id/tv_bienvenida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bienvenido a la app Chat Sockets. Let's go chat!"
                 android:textSize="18sp" />
         </ScrollView>
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/button2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_height="97dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="283dp"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/enviar"
+                android:onClick="enviarMensaje"
+                android:text="" />
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
