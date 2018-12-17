@@ -34,7 +34,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/plainServidorPuerto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,7 +59,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/plainServidorNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -69,11 +69,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/b_vamosAChatear2"
-        android:onClick="manejador"
+        android:id="@+id/buttonServidorChat"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/chat"
+        android:onClick="manejador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
@@ -82,11 +82,11 @@
         app:layout_constraintVertical_bias="0.961" />
 
     <Button
-        android:id="@+id/button4"
-        android:onClick="manejador"
+        android:id="@+id/buttonServidorAtras"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/atras"
+        android:onClick="manejador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"

@@ -8,11 +8,11 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button5"
-        android:onClick="manejador"
+        android:id="@+id/buttonClienteAtras"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/atras"
+        android:onClick="manejador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
@@ -67,7 +67,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/plain_puerto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -108,7 +108,7 @@
             tools:layout_editor_absoluteY="83dp" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/plain_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -118,11 +118,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/b_vamosAChatear"
-        android:onClick="manejador"
+        android:id="@+id/buttonClienteChat"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/chat"
+        android:onClick="manejador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
