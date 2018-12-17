@@ -23,7 +23,7 @@ public class ClaseChat extends AppCompatActivity {
 
 
     // variables
-    TextView myTV;
+    TextView textViewChat;
     Button btncliente, btnservidor;
     EditText ipServer;
 
@@ -42,10 +42,10 @@ public class ClaseChat extends AppCompatActivity {
     WaitingClientThread HiloEspera;
 
     Bundle datos;
-    String TheIP;
+    String ipServidor;
     String nombreCliente;
     String nombreServidor;
-    int puertoClienteServidor;
+    int puertoServidor;
     boolean esServidor;
 
     // funcion onCreate
@@ -54,7 +54,7 @@ public class ClaseChat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clase_chat);
 
-        myTV = (TextView) findViewById(R.id.tvSalida);
+        textViewChat = (TextView) findViewById(R.id.tvSalida);
 
         datos = getIntent().getExtras();
         esServidor = datos.getBoolean("soy servidor");
@@ -62,14 +62,14 @@ public class ClaseChat extends AppCompatActivity {
         if (esServidor == true) { // es el servidor
             // Regogemos en variables los datos que nos pasa ClaseServidor
             nombreServidor = datos.getString("nombre del servidor");
-            puertoClienteServidor = datos.getInt("puerto del servidor");
+            puertoServidor = datos.getInt("puerto del servidor");
             startServer();
 
         } else { // es el cliente
             // Recogemos en variables los datos que nos pasa ClaseCliente
-            TheIP = datos.getString("ip del servidor");
-            Toast.makeText(ClaseChat.this, TheIP, Toast.LENGTH_LONG).show();
-            puertoClienteServidor = datos.getInt("puerto del servidor");
+            ipServidor = datos.getString("ip del servidor");
+            Toast.makeText(ClaseChat.this, ipServidor, Toast.LENGTH_LONG).show();
+            puertoServidor = datos.getInt("puerto del servidor");
             nombreCliente = datos.getString("nombre del cliente");
             startClient();
         }
@@ -90,9 +90,9 @@ public class ClaseChat extends AppCompatActivity {
     }
 
     public void startClient() {
-        (new ClientConnectToServer(TheIP)).start();
+        (new ClientConnectToServer(ipServidor)).start();
         SetText("\nComenzamos Cliente!");
-        AppenText("\nNos intentamos conectar al servidor: " + TheIP);
+        AppenText("\nNos intentamos conectar al servidor: " + ipServidor);
     }
 
     public void AppenText(String text) {
@@ -109,7 +109,7 @@ public class ClaseChat extends AppCompatActivity {
             SetText("Esperando Usuario...");
             try {
                 //Abrimos el socket
-                serverSocket = new ServerSocket(puertoClienteServidor);
+                serverSocket = new ServerSocket(puertoServidor);
 
                 //Mostramos un mensaje para indicar que estamos esperando en la direccion ip y el puerto...
                 AppenText("Creado el servidor\n Dirección: " + getIpAddress() + " Puerto: " + serverSocket.getLocalPort());
@@ -153,9 +153,9 @@ public class ClaseChat extends AppCompatActivity {
         public void run() {
 
             try {
-                SetText("Conectando con el servidor: " + mIp + ":" + puertoClienteServidor + "...\n\n");//Mostramos por la interfaz que nos hemos conectado al servidor} catch (IOException e) {
+                SetText("Conectando con el servidor: " + mIp + ":" + puertoServidor + "...\n\n");//Mostramos por la interfaz que nos hemos conectado al servidor} catch (IOException e) {
 
-                socket = new Socket(mIp, puertoClienteServidor);//Creamos el socket
+                socket = new Socket(mIp, puertoServidor);//Creamos el socket
 
                 try {
                     dataInputStream = new DataInputStream(socket.getInputStream());
@@ -355,7 +355,7 @@ public class ClaseChat extends AppCompatActivity {
         }
 
         public void run() {
-            myTV.setText(text);
+            textViewChat.setText(text);
         }
     }
 
@@ -367,7 +367,7 @@ public class ClaseChat extends AppCompatActivity {
         }
 
         public void run() {
-            myTV.append(text);
+            textViewChat.append(text);
         }
     }
 

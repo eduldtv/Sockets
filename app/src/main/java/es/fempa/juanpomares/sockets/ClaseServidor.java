@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 public class ClaseServidor extends AppCompatActivity {
 
-    EditText puertoServidor;
-    EditText nombreServidor;
-    int numPuertoServidor;
+    EditText editTextPuertoServidor;
+    EditText editTextNombreServidor;
+    int puertoServidor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class ClaseServidor extends AppCompatActivity {
         Button botonAtras = (Button)findViewById(R.id.buttonServidorAtras);
         Button botonChat = (Button) findViewById(R.id.buttonServidorChat);
 
-        puertoServidor = (EditText) findViewById(R.id.plainServidorPuerto);
-        nombreServidor = (EditText) findViewById(R.id.plainServidorNombre);
+        editTextPuertoServidor = (EditText) findViewById(R.id.plainServidorPuerto);
+        editTextNombreServidor = (EditText) findViewById(R.id.plainServidorNombre);
 
 
         botonAtras.setOnClickListener(new View.OnClickListener() {
@@ -42,18 +42,18 @@ public class ClaseServidor extends AppCompatActivity {
                 Intent intent = new Intent(ClaseServidor.this, ClaseChat.class);
                 boolean empezarActividad = true;
                 try {
-                    numPuertoServidor = Integer.parseInt(puertoServidor.getText().toString());
+                    puertoServidor = Integer.parseInt(editTextPuertoServidor.getText().toString());
                 }catch (Exception e){
                     Toast.makeText(ClaseServidor.this, "Error puerto no válido", Toast.LENGTH_SHORT).show();
                     empezarActividad = false;
                 }
-                if(numPuertoServidor >= 1024 && numPuertoServidor <= 65535){
-                    intent.putExtra("puerto del servidor", numPuertoServidor);
+                if(puertoServidor >= 1024 && puertoServidor <= 65535){
+                    intent.putExtra("puerto del servidor", puertoServidor);
 
                     intent.putExtra("soy servidor", true);
 
-                    if(nombreServidor.length() > 0){
-                        intent.putExtra("nombre del servidor", nombreServidor.getText());
+                    if(editTextNombreServidor.length() > 0){
+                        intent.putExtra("nombre del servidor", editTextNombreServidor.getText());
                     } else{
                         Toast.makeText(ClaseServidor.this, "Error no ha introducido un nombre.", Toast.LENGTH_SHORT).show();
                         empezarActividad = false;

@@ -9,19 +9,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class ClaseCliente extends AppCompatActivity {
-    EditText ipServidor;
-    EditText puertoServidor;
-    EditText nombreCliente;
-    String TheIP;
-    int numPuertoServidor;
+
+    EditText editTextIpServidor;
+    EditText editTextPuertoServidor;
+    EditText editTextNombreUsuario;
+    String ipServidor;
+    int puertoServidor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clase_cliente);
 
-        ipServidor = (EditText) findViewById(R.id.plain_ip);
-        puertoServidor = (EditText) findViewById(R.id.plain_puerto);
-        nombreCliente = (EditText) findViewById(R.id.plain_nombre);
+        editTextIpServidor = (EditText) findViewById(R.id.plain_ip);
+        editTextPuertoServidor = (EditText) findViewById(R.id.plain_puerto);
+        editTextNombreUsuario = (EditText) findViewById(R.id.plain_nombre);
         Button botonAtras = (Button) findViewById(R.id.buttonClienteAtras);
         Button botonChat = (Button) findViewById(R.id.buttonClienteChat);
 
@@ -40,22 +42,22 @@ public class ClaseCliente extends AppCompatActivity {
 
                 boolean empezarActividad = true;
                 Intent intent = new Intent(ClaseCliente.this, ClaseChat.class);
-                TheIP=ipServidor.getText().toString();
-                if(TheIP.length()>5) {
-                    intent.putExtra("ip del servidor", TheIP);
+                ipServidor = editTextIpServidor.getText().toString();
+                if(ipServidor.length()>5) {
+                    intent.putExtra("ip del servidor", ipServidor);
                     intent.putExtra("soy servidor", false);
 
                     try {
-                        numPuertoServidor = Integer.parseInt(puertoServidor.getText().toString());
+                        puertoServidor = Integer.parseInt(editTextPuertoServidor.getText().toString());
                     }catch (Exception e){
                         Toast.makeText(ClaseCliente.this, "Error puerto no válido", Toast.LENGTH_SHORT).show();
                         empezarActividad = false;
                     }
-                    if(numPuertoServidor >= 1024 && numPuertoServidor <= 65535){
-                        intent.putExtra("puerto del servidor", numPuertoServidor);
+                    if(puertoServidor >= 1024 && puertoServidor <= 65535){
+                        intent.putExtra("puerto del servidor", puertoServidor);
 
-                        if(nombreCliente.length() > 0){
-                            intent.putExtra("nombre del cliente", nombreCliente.getText());
+                        if(editTextNombreUsuario.length() > 0){
+                            intent.putExtra("nombre del cliente", editTextNombreUsuario.getText());
                         } else{
                             Toast.makeText(ClaseCliente.this, "Error no ha introducido un nombre.", Toast.LENGTH_SHORT).show();
                             empezarActividad = false;
