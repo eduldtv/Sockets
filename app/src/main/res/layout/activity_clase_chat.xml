@@ -16,7 +16,7 @@
             android:layout_height="409dp">
 
             <TextView
-                android:id="@+id/tv_bienvenida"
+                android:id="@+id/tvSalida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bienvenido a la app Chat Sockets. Let's go chat!"
@@ -29,11 +29,11 @@
             android:layout_height="97dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView14"
+            <EditText
+                android:id="@+id/editTextMensajes"
                 android:layout_width="283dp"
                 android:layout_height="match_parent"
-                android:text="TextView"
+                android:text=""
                 android:textSize="18sp" />
 
             <Button

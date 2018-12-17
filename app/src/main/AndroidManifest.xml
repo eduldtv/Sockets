@@ -13,7 +13,6 @@
         android:roundIcon="@drawable/chatsocketsico"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
         <activity android:name=".ClaseCliente" />
         <activity android:name=".ClaseServidor" />
         <activity android:name=".ClasePrincipal">

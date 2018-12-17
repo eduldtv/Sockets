@@ -48,10 +48,12 @@ public class ClaseServidor extends AppCompatActivity {
                     empezarActividad = false;
                 }
                 if(numPuertoServidor >= 1024 && numPuertoServidor <= 65535){
-                    intent.putExtra("puerto del servidor", puertoServidor.getText());
+                    intent.putExtra("puerto del servidor", numPuertoServidor);
+
+                    intent.putExtra("soy servidor", true);
 
                     if(nombreServidor.length() > 0){
-                        intent.putExtra("nombre del cliente", nombreServidor.getText());
+                        intent.putExtra("nombre del servidor", nombreServidor.getText());
                     } else{
                         Toast.makeText(ClaseServidor.this, "Error no ha introducido un nombre.", Toast.LENGTH_SHORT).show();
                         empezarActividad = false;

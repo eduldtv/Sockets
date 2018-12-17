@@ -42,7 +42,8 @@ public class ClaseCliente extends AppCompatActivity {
                 Intent intent = new Intent(ClaseCliente.this, ClaseChat.class);
                 TheIP=ipServidor.getText().toString();
                 if(TheIP.length()>5) {
-                    intent.putExtra("ip del servidor", ipServidor.getText());
+                    intent.putExtra("ip del servidor", TheIP);
+                    intent.putExtra("soy servidor", false);
 
                     try {
                         numPuertoServidor = Integer.parseInt(puertoServidor.getText().toString());
@@ -51,7 +52,7 @@ public class ClaseCliente extends AppCompatActivity {
                         empezarActividad = false;
                     }
                     if(numPuertoServidor >= 1024 && numPuertoServidor <= 65535){
-                        intent.putExtra("puerto del servidor", puertoServidor.getText());
+                        intent.putExtra("puerto del servidor", numPuertoServidor);
 
                         if(nombreCliente.length() > 0){
                             intent.putExtra("nombre del cliente", nombreCliente.getText());
