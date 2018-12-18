@@ -20,7 +20,9 @@ import java.net.SocketException;
 import java.util.Enumeration;
 
 public class ClaseChat extends AppCompatActivity {
-
+// NOTA IMPORTANTE: el servidor tiene que ser siempre un teléfono móvil, y se debe compartir su red
+// de datos con compartir wifi, donde se conectará el ordenador y con un emulador se conectará como
+// cliente
 
     // variables
     TextView textViewChat;
