@@ -3,6 +3,7 @@ package es.fempa.juanpomares.sockets;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -112,13 +113,10 @@ public class ClaseChat extends AppCompatActivity {
         AppenText("\nNos intentamos conectar al servidor: " + ipServidor);
     }
 
-
-    // TODO: personalizar los componentes de los mensajes que es donde se escribe por pantalla
     public void AppenText(String text) {
         runOnUiThread(new appendUITextView(text));
 
     }
-
 
     public void SetText(String text) {
         runOnUiThread(new setUITextView(text));
@@ -340,7 +338,7 @@ public class ClaseChat extends AppCompatActivity {
         public void run() {
             executing = true;
 
-            while (executing) { // está escuchando todo el tiempo
+            while (executing) { // está escuchando todoo el tiempo
                 line = "";
                 line = ObtenerCadena();//Obtenemos la cadena del buffer
                 if (!line .equals("")  && line.length() != 0) {//Comprobamos que esa cadena tenga contenido
@@ -395,12 +393,21 @@ public class ClaseChat extends AppCompatActivity {
         public void run() {
 
             //textViewChat.append(text);
-// TODO: textview cada mensaje
-            TextView textViewNuevoTexto = new TextView(ClaseChat.this);
-            textViewNuevoTexto.setText(text);
-            //textViewNuevoTexto.setGravity(Gravity.END);
-            //textViewNuevoTexto.setGravity(Gravity.START);
-            linearLayout.addView(textViewNuevoTexto);
+// TODO: textview cada mensaje, personalizar aspecto
+            if (esServidor == true) { // es el servidor
+                //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloServidor));
+                TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloServidor);
+                textViewNuevoTexto.setText(text);
+                linearLayout.addView(textViewNuevoTexto);
+            } else{
+                //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloCliente));
+                TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
+                textViewNuevoTexto.setText(text);
+                linearLayout.addView(textViewNuevoTexto);
+            }
+
         }
     }
 
