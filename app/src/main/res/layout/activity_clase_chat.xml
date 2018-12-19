@@ -18,6 +18,19 @@
             android:text="Bienvenido a la app Chat Sockets. Let's go chat!"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/textView"
+
+            android:text="Soy el servidor"
+            style="@style/bocadilloServidor"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+
+            android:text="Soy el cliente"
+            style="@style/bocadilloCliente" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="405dp">

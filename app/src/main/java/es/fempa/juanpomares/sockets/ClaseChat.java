@@ -397,13 +397,13 @@ public class ClaseChat extends AppCompatActivity {
             if (esServidor == true) { // es el servidor
                 //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloServidor));
                 TextView textViewNuevoTexto = new TextView(ClaseChat.this);
-                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloServidor);
+                textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloServidor);
                 textViewNuevoTexto.setText(text);
                 linearLayout.addView(textViewNuevoTexto);
             } else{
                 //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloCliente));
                 TextView textViewNuevoTexto = new TextView(ClaseChat.this);
-                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
+                textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
                 textViewNuevoTexto.setText(text);
                 linearLayout.addView(textViewNuevoTexto);
             }

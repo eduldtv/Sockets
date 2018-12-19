@@ -10,7 +10,7 @@
 
     <style name="bocadilloServidor"> 
         <item name="android:layout_width">wrap_content</item>     
-        <item name="android:layout_height">100dp</item>    
+        <item name="android:layout_height">wrap_content</item>    
         <item name="android:textColor">@color/colorTextoBocadilloServidor</item>
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
@@ -20,7 +20,7 @@
 
     <style name="bocadilloCliente"> 
         <item name="android:layout_width">wrap_content</item>     
-        <item name="android:layout_height">100dp</item>    
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorTextoBocadilloCliente</item>
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
