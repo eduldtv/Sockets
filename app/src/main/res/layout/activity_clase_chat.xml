@@ -20,13 +20,15 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="409dp">
+            android:layout_height="405dp">
 
-            <TextView
-                android:id="@+id/tvSalida"
+            <LinearLayout
+                android:id="@+id/linearLayoutChat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
         </ScrollView>
 
 

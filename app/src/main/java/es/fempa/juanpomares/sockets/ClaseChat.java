@@ -3,9 +3,11 @@ package es.fempa.juanpomares.sockets;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,16 +52,23 @@ public class ClaseChat extends AppCompatActivity {
     int puertoServidor;
     boolean esServidor;
 
+    LinearLayout linearLayout;
+
     // funcion onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clase_chat);
 
-        textViewChat = (TextView) findViewById(R.id.tvSalida);
+        //textViewChat = (TextView) findViewById(R.id.tvSalida);
 
         datos = getIntent().getExtras();
         esServidor = datos.getBoolean("soy servidor");
+
+        linearLayout = (LinearLayout) findViewById(R.id.linearLayoutChat);
+        TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+        textViewNuevoTexto.setText("hola");
+        linearLayout.addView(textViewNuevoTexto);
 
         if (esServidor == true) { // es el servidor
             // Regogemos en variables los datos que nos pasa ClaseServidor
@@ -70,19 +79,25 @@ public class ClaseChat extends AppCompatActivity {
         } else { // es el cliente
             // Recogemos en variables los datos que nos pasa ClaseCliente
             ipServidor = datos.getString("ip del servidor");
-            Toast.makeText(ClaseChat.this, ipServidor, Toast.LENGTH_LONG).show();
             puertoServidor = datos.getInt("puerto del servidor");
             nombreCliente = datos.getString("nombre del cliente");
             startClient();
         }
 
+
     }
 
     // funcion enviarMensaje
-    // boton del chat donde se envia el mensaje e inicializa a cero el textview
+    // boton del chat ENVIAR donde se envia el mensaje e inicializa a cero el textview
     public void enviarMensaje(View v) {
-        EditText et = (EditText) findViewById(R.id.editTextMensajes);
+        EditText et = (EditText) findViewById(R.id.editTextMensajes); // editTextMensajes es el cuadro donde se escribe el mensaje
         sendMessage(et.getText().toString());
+
+        TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+        textViewNuevoTexto.setText(et.getText().toString());
+        textViewNuevoTexto.setGravity(Gravity.END);
+        linearLayout.addView(textViewNuevoTexto);
+
         et.setText("");
     }
 
@@ -97,16 +112,19 @@ public class ClaseChat extends AppCompatActivity {
         AppenText("\nNos intentamos conectar al servidor: " + ipServidor);
     }
 
+
+    // TODO: personalizar los componentes de los mensajes que es donde se escribe por pantalla
     public void AppenText(String text) {
-        runOnUiThread(new appendUITextView(text + "\n"));
-    } // TODO: personalizar los componentes de los mensajes que es donde se escribe por pantalla
+        runOnUiThread(new appendUITextView(text));
+
+    }
+
 
     public void SetText(String text) {
         runOnUiThread(new setUITextView(text));
     }
 
-    private class WaitingClientThread extends Thread
-    {
+    private class WaitingClientThread extends Thread {
         public void run() {
             SetText("Esperando Usuario...");
             try {
@@ -250,20 +268,21 @@ public class ClaseChat extends AppCompatActivity {
             }
         }
     }
-/*
-    private void sendVariousMessages(String[] msgs, int[] time) {
-        if (msgs != null && time != null && msgs.length == time.length)
-            for (int i = 0; i < msgs.length; i++) {
-                sendMessage(msgs[i]);
-                try {
-                    Thread.sleep(time[i]);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    return;
+
+    /*
+        private void sendVariousMessages(String[] msgs, int[] time) {
+            if (msgs != null && time != null && msgs.length == time.length)
+                for (int i = 0; i < msgs.length; i++) {
+                    sendMessage(msgs[i]);
+                    try {
+                        Thread.sleep(time[i]);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        return;
+                    }
                 }
-            }
-    }
-*/
+        }
+    */
     private void sendMessage(String txt) {
         new SendMessageSocketThread(txt).start();
     }
@@ -280,7 +299,7 @@ public class ClaseChat extends AppCompatActivity {
             try {
                 dataOutputStream.writeUTF(msg);//Enviamos el mensaje
                 //dataOutputStream.close();
-                AppenText("Enviado: " + msg);
+                //AppenText("Enviado: " + msg);
             } catch (IOException e) {
                 e.printStackTrace();
                 //message += "¡Algo fue mal! " + e.toString() + "\n";
@@ -324,8 +343,10 @@ public class ClaseChat extends AppCompatActivity {
             while (executing) { // está escuchando todo el tiempo
                 line = "";
                 line = ObtenerCadena();//Obtenemos la cadena del buffer
-                if (line != "" && line.length() != 0)//Comprobamos que esa cadena tenga contenido
+                if (!line .equals("")  && line.length() != 0) {//Comprobamos que esa cadena tenga contenido
                     AppenText("Recibido: " + line);//Procesamos la cadena recibida
+
+                }
             }
         }
 
@@ -357,7 +378,10 @@ public class ClaseChat extends AppCompatActivity {
         }
 
         public void run() {
-            textViewChat.setText(text);
+            //textViewChat.setText(text);
+            TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+            textViewNuevoTexto.setText(text);
+            linearLayout.addView(textViewNuevoTexto);
         }
     }
 
@@ -369,7 +393,14 @@ public class ClaseChat extends AppCompatActivity {
         }
 
         public void run() {
-            textViewChat.append(text);
+
+            //textViewChat.append(text);
+// TODO: textview cada mensaje
+            TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+            textViewNuevoTexto.setText(text);
+            //textViewNuevoTexto.setGravity(Gravity.END);
+            //textViewNuevoTexto.setGravity(Gravity.START);
+            linearLayout.addView(textViewNuevoTexto);
         }
     }
 
