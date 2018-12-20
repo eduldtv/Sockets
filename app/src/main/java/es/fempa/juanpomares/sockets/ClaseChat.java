@@ -1,5 +1,7 @@
 package es.fempa.juanpomares.sockets;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +57,7 @@ public class ClaseChat extends AppCompatActivity {
     boolean esServidor;
 
     LinearLayout linearLayout;
+    ScrollView scrollView;
 
     // funcion onCreate
     @Override
@@ -70,6 +74,7 @@ public class ClaseChat extends AppCompatActivity {
         TextView textViewNuevoTexto = new TextView(ClaseChat.this);
         textViewNuevoTexto.setText("hola");
         linearLayout.addView(textViewNuevoTexto);
+        scrollView = (ScrollView) findViewById(R.id.scrollViewChat);
 
         if (esServidor == true) { // es el servidor
             // Regogemos en variables los datos que nos pasa ClaseServidor
@@ -93,7 +98,7 @@ public class ClaseChat extends AppCompatActivity {
     public void enviarMensaje(View v) {
         EditText et = (EditText) findViewById(R.id.editTextMensajes); // editTextMensajes es el cuadro donde se escribe el mensaje
         sendMessage(et.getText().toString());
-
+// TODO: cambiar estilo enviar mensajes
         TextView textViewNuevoTexto = new TextView(ClaseChat.this);
         textViewNuevoTexto.setText(et.getText().toString());
         textViewNuevoTexto.setGravity(Gravity.END);
@@ -390,26 +395,38 @@ public class ClaseChat extends AppCompatActivity {
             this.text = text;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void run() {
 
             //textViewChat.append(text);
 // TODO: textview cada mensaje, personalizar aspecto
             if (esServidor == true) { // es el servidor
                 //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloServidor));
-                TextView textViewNuevoTexto = new TextView(ClaseChat.this);
-                textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloServidor);
+                //TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloServidor);
+                TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloServidor);
                 textViewNuevoTexto.setText(text);
                 linearLayout.addView(textViewNuevoTexto);
             } else{
                 //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloCliente));
-                TextView textViewNuevoTexto = new TextView(ClaseChat.this);
-                textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
+                //TextView textViewNuevoTexto = new TextView(ClaseChat.this);
+                //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
+                TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloCliente);
                 textViewNuevoTexto.setText(text);
                 linearLayout.addView(textViewNuevoTexto);
             }
 
         }
     }
+
+/*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+    }
+
+    */
 
     @Override
     protected void onDestroy() {
