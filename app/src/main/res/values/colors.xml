@@ -7,4 +7,5 @@
     <color name="colorTextoBocadilloServidor">#FD971F</color>
     <color name="colorBackGroundBocadilloCliente">#404040</color>
     <color name="colorTextoBocadilloCliente">#AE81FF</color>
+    <color name="colorTextoBocadilloConsola">#A6E22E</color>
 </resources>

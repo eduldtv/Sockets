@@ -14,8 +14,12 @@
         <item name="android:textColor">@color/colorTextoBocadilloServidor</item>
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">10dp</item>7
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">end</item>
         <item name="android:background">@drawable/componente_personalizado_enviado</item>
+
+
     </style>
 
     <style name="bocadilloRecibido"> 
@@ -25,6 +29,8 @@
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
         <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">start</item>
         <item name="android:background">@drawable/componente_personalizado_recibido</item>
     </style>
 
@@ -35,6 +41,17 @@
         <item name="android:textSize">18dp</item>
         <item name="android:text"></item>
         <item name="android:background">@drawable/componente_personalizado_edittextchat</item>
+    </style>
+
+    <style name="bocadilloConsola">
+        <item name="android:textColor">@color/colorTextoBocadilloConsola</item>
+        <item name="android:layout_width">wrap_content</item>     
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/componente_personalizado_consola</item>
     </style>
 
 </resources>

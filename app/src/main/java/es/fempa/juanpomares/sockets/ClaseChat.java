@@ -1,5 +1,6 @@
 package es.fempa.juanpomares.sockets;
 
+import android.graphics.Paint;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -93,11 +95,12 @@ public class ClaseChat extends AppCompatActivity {
         EditText et = (EditText) findViewById(R.id.editTextMensajes); // editTextMensajes es el cuadro donde se escribe el mensaje
         sendMessage(et.getText().toString());
 
-// TODO: lo que se envia
+// TODO: mensajes escritos
 
         TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloEnviado);
         textViewNuevoTexto.setText(et.getText().toString());
-        linearLayout.addView(textViewNuevoTexto);
+        linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
         // Para que el texto esté a la derecha como mensaje enviado
         textViewNuevoTexto.setGravity(Gravity.END);
 
@@ -382,13 +385,13 @@ public class ClaseChat extends AppCompatActivity {
 
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void run() {
-            // TODO: mensajes de consola
+            // TODO: mensajes enviados
             //textViewChat.setText(text);
 
-            TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloEnviado);
+            TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloConsola);
             textViewNuevoTexto.setText(text);
-            linearLayout.addView(textViewNuevoTexto);
-            textViewNuevoTexto.setGravity(Gravity.END);
+            linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            textViewNuevoTexto.setGravity(Gravity.CENTER);
 // Mostramos el último mensaje añadido como en Whatsapp
             scrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
@@ -405,13 +408,13 @@ public class ClaseChat extends AppCompatActivity {
         public void run() {
 
             //textViewChat.append(text);
-// TODO: lo que se recibe
+// TODO: mensajes recibidos
 
             TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloRecibido);
             textViewNuevoTexto.setText(text);
-            linearLayout.addView(textViewNuevoTexto);
+            linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-            //textViewNuevoTexto.setGravity(Gravity.START);
+            textViewNuevoTexto.setGravity(Gravity.START);
 
             // Mostramos el último mensaje añadido como en Whatsapp
             scrollView.fullScroll(ScrollView.FOCUS_DOWN);
