@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.io.DataInputStream;
@@ -247,7 +249,7 @@ public class ClaseChat extends AppCompatActivity {
         }
     }*/
 
-    private void DisconnectSockets() {
+    private void DisconnectSockets() throws IOException {
         if (ConectionEstablished) {
             runOnUiThread(new Runnable() {
                 @Override
@@ -283,6 +285,7 @@ public class ClaseChat extends AppCompatActivity {
                     } catch (Exception e) {
                     } finally {
                         socket = null;
+                        serverSocket.close();
                     }
                 }
             }
@@ -405,11 +408,13 @@ public class ClaseChat extends AppCompatActivity {
 
             TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloConsola);
             textViewNuevoTexto.setText(text);
-            LinearLayout horizontalLinearLayout = new LinearLayout(ClaseChat.this);
-            horizontalLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            horizontalLinearLayout.addView(textViewNuevoTexto);
-            verticalLinearLayout.addView(horizontalLinearLayout);
-
+            //LinearLayout horizontalLinearLayout = new LinearLayout(ClaseChat.this);
+            //horizontalLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            //horizontalLinearLayout.addView(textViewNuevoTexto);
+            //verticalLinearLayout.addView(horizontalLinearLayout);
+            RelativeLayout relativeLayout = new RelativeLayout(ClaseChat.this);
+            relativeLayout.addView(textViewNuevoTexto,  new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            relativeLayout.setGravity(RelativeLayout.CENTER_IN_PARENT);
             textViewNuevoTexto.setGravity(Gravity.CENTER);
 // Mostramos el último mensaje añadido como en Whatsapp
             scrollView.fullScroll(ScrollView.FOCUS_DOWN);
@@ -446,7 +451,11 @@ public class ClaseChat extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        DisconnectSockets();
+        try {
+            DisconnectSockets();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

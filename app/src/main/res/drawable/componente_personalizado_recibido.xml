@@ -6,7 +6,8 @@
         android:color="@color/colorTextoBocadilloCliente" />
 
     <solid android:color="@color/colorBackGroundBocadilloCliente" />
-
+    <padding
+        android:bottom="20dp"/>
     <corners
         android:bottomLeftRadius="40dp"
         android:bottomRightRadius="40dp"
