@@ -346,7 +346,7 @@ public class ClaseChat extends AppCompatActivity {
             while (executing) { // está escuchando todoo el tiempo
                 line = "";
                 line = ObtenerCadena();//Obtenemos la cadena del buffer
-                if (!line .equals("")  && line.length() != 0) {//Comprobamos que esa cadena tenga contenido
+                if (!line.equals("") && line.length() != 0) {//Comprobamos que esa cadena tenga contenido
                     AppenText("Recibido: " + line);//Procesamos la cadena recibida
 
                 }
@@ -407,7 +407,7 @@ public class ClaseChat extends AppCompatActivity {
                 TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloServidor);
                 textViewNuevoTexto.setText(text);
                 linearLayout.addView(textViewNuevoTexto);
-            } else{
+            } else {
                 //TextView textViewNuevoTexto = new TextView(new ContextThemeWrapper(this, R.style.bocadilloCliente));
                 //TextView textViewNuevoTexto = new TextView(ClaseChat.this);
                 //textViewNuevoTexto.setTextAppearance(ClaseChat.this, R.style.bocadilloCliente);
@@ -416,17 +416,11 @@ public class ClaseChat extends AppCompatActivity {
                 linearLayout.addView(textViewNuevoTexto);
             }
 
+            // Mostramos el último mensaje añadido como en Whatsapp
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+
         }
     }
-
-/*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
-    }
-
-    */
 
     @Override
     protected void onDestroy() {
