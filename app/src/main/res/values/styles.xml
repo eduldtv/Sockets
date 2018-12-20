@@ -8,24 +8,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="bocadilloServidor"> 
-        <item name="android:layout_width">wrap_content</item>     
-        <item name="android:layout_height">wrap_content</item>    
+    <style name="bocadilloEnviado"> 
+        <item name="android:layout_width">wrap_content</item>   
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorTextoBocadilloServidor</item>
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
         <item name="android:padding">10dp</item>
-        <item name="android:background"> @drawable/componente_personalizado_servidor</item>
+        <item name="android:background">@drawable/componente_personalizado_enviado</item>
     </style>
 
-    <style name="bocadilloCliente"> 
-        <item name="android:layout_width">wrap_content</item>     
+    <style name="bocadilloRecibido"> 
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorTextoBocadilloCliente</item>
         <item name="android:typeface">monospace</item>
         <item name="android:layout_margin">10dp</item>
         <item name="android:padding">10dp</item>
-        <item name="android:background"> @drawable/componente_personalizado_cliente</item>
+        <item name="android:background">@drawable/componente_personalizado_recibido</item>
+    </style>
+
+    <style name="bocadilloEditTextChat">
+        <item name="android:layout_width">247dp</item>     
+        <item name="android:layout_height">80dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:text"></item>
+        <item name="android:background">@drawable/componente_personalizado_edittextchat</item>
     </style>
 
 </resources>
