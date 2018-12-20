@@ -20,7 +20,7 @@
             android:paddingBottom="80dp">
 
             <LinearLayout
-                android:id="@+id/linearLayoutChat"
+                android:id="@+id/linearLayoutChatVertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">

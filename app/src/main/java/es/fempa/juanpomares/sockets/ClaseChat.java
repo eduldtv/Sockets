@@ -55,7 +55,7 @@ public class ClaseChat extends AppCompatActivity {
     int puertoServidor;
     boolean esServidor;
 
-    LinearLayout linearLayout;
+    LinearLayout verticalLinearLayout;
     ScrollView scrollView;
 
     // funcion onCreate
@@ -69,7 +69,7 @@ public class ClaseChat extends AppCompatActivity {
         datos = getIntent().getExtras();
         esServidor = datos.getBoolean("soy servidor");
 
-        linearLayout = (LinearLayout) findViewById(R.id.linearLayoutChat);
+        verticalLinearLayout = (LinearLayout) findViewById(R.id.linearLayoutChatVertical);
         scrollView = (ScrollView) findViewById(R.id.scrollViewChat);
 
         if (esServidor == true) { // es el servidor
@@ -96,10 +96,25 @@ public class ClaseChat extends AppCompatActivity {
         sendMessage(et.getText().toString());
 
 // TODO: mensajes escritos
-
+/*
         TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloEnviado);
         textViewNuevoTexto.setText(et.getText().toString());
         linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+*/
+
+        TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloEnviado);
+        textViewNuevoTexto.setText(et.getText().toString());
+        LinearLayout horizontalLinearLayout = new LinearLayout(this);
+        horizontalLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+        //truco
+        TextView invisibleTV = new TextView(ClaseChat.this);
+        invisibleTV.setWidth(500);
+        horizontalLinearLayout.addView(invisibleTV);
+        horizontalLinearLayout.addView(textViewNuevoTexto);
+        verticalLinearLayout.addView(horizontalLinearLayout);
+        // Para que el texto esté a la derecha como mensaje enviado
+        textViewNuevoTexto.setGravity(Gravity.END);
 
         // Para que el texto esté a la derecha como mensaje enviado
         textViewNuevoTexto.setGravity(Gravity.END);
@@ -390,7 +405,11 @@ public class ClaseChat extends AppCompatActivity {
 
             TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloConsola);
             textViewNuevoTexto.setText(text);
-            linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            LinearLayout horizontalLinearLayout = new LinearLayout(ClaseChat.this);
+            horizontalLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            horizontalLinearLayout.addView(textViewNuevoTexto);
+            verticalLinearLayout.addView(horizontalLinearLayout);
+
             textViewNuevoTexto.setGravity(Gravity.CENTER);
 // Mostramos el último mensaje añadido como en Whatsapp
             scrollView.fullScroll(ScrollView.FOCUS_DOWN);
@@ -412,8 +431,10 @@ public class ClaseChat extends AppCompatActivity {
 
             TextView textViewNuevoTexto = new TextView(ClaseChat.this, null, 0, R.style.bocadilloRecibido);
             textViewNuevoTexto.setText(text);
-            linearLayout.addView(textViewNuevoTexto, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
+            LinearLayout horizontalLinearLayout = new LinearLayout(ClaseChat.this);
+            horizontalLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            horizontalLinearLayout.addView(textViewNuevoTexto);
+            verticalLinearLayout.addView(horizontalLinearLayout);
             textViewNuevoTexto.setGravity(Gravity.START);
 
             // Mostramos el último mensaje añadido como en Whatsapp
